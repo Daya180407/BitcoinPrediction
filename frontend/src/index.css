@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0A2A43;
+  --accent: #1E9E56;
+  --danger: #e53e3e;
+  --surface: #0f1f2e;
+  --card: #0d1f30;
+  --border: #1a3448;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #051520;
+  color: #e2e8f0;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0A2A43; }
+::-webkit-scrollbar-thumb { background: #1a3448; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #1E9E56; }
+
+/* Grid background */
+.bg-grid {
+  background-image: linear-gradient(rgba(30, 158, 86, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 158, 86, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glow effects */
+.glow-green { box-shadow: 0 0 20px rgba(30, 158, 86, 0.4); }
+.glow-red { box-shadow: 0 0 20px rgba(229, 62, 62, 0.4); }
+.text-glow { text-shadow: 0 0 20px rgba(30, 158, 86, 0.6); }
+
+/* Price flash animations */
+@keyframes flashGreen {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(30, 158, 86, 0.2); }
+}
+@keyframes flashRed {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(229, 62, 62, 0.2); }
+}
+.flash-green { animation: flashGreen 0.5s ease; }
+.flash-red { animation: flashRed 0.5s ease; }
+
+/* Countdown ring */
+.countdown-ring {
+  transition: stroke-dashoffset 1s linear;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Custom button styles */
+.btn-up {
+  background: linear-gradient(135deg, #1E9E56, #25bf68);
+  box-shadow: 0 4px 15px rgba(30, 158, 86, 0.3);
+  transition: all 0.2s;
+}
+.btn-up:hover {
+  box-shadow: 0 6px 25px rgba(30, 158, 86, 0.5);
+  transform: translateY(-1px);
+}
+.btn-down {
+  background: linear-gradient(135deg, #e53e3e, #fc5252);
+  box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+  transition: all 0.2s;
+}
+.btn-down:hover {
+  box-shadow: 0 6px 25px rgba(229, 62, 62, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Card glass effect */
+.glass-card {
+  background: rgba(13, 31, 48, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(26, 52, 72, 0.8);
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-move {
+  display: inline-block;
+  animation: ticker 40s linear infinite;
+}
+
+/* Number change animation */
+@keyframes numberChange {
+  0% { opacity: 0; transform: translateY(-8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.num-change { animation: numberChange 0.3s ease-out; }
+
+/* Win/Loss result modal */
+@keyframes resultPop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.result-pop { animation: resultPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
