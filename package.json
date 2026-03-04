@@ -1,19 +1,32 @@
 {
-  "name": "crypto-arena",
+  "name": "crypto-arena-backend",
   "version": "1.0.0",
-  "description": "Crypto Prediction Arena - Monorepo root",
+  "description": "Crypto Prediction Arena Backend",
+  "main": "src/server.js",
   "scripts": {
-    "install:all": "cd backend && npm install && cd ../frontend && npm install",
-    "seed": "cd backend && npm run seed",
-    "dev:backend": "cd backend && npm run dev",
-    "dev:frontend": "cd frontend && npm start",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
-    "build:frontend": "cd frontend && npm run build",
-    "docker:up": "docker-compose up -d --build",
-    "docker:down": "docker-compose down",
-    "docker:logs": "docker-compose logs -f"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/utils/seeder.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.3.1",
+    "morgan": "^1.10.0",
+    "node-cron": "^3.0.2",
+    "axios": "^1.4.0",
+    "socket.io": "^4.6.1",
+    "stripe": "^12.14.0",
+    "razorpay": "^2.9.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "nodemon": "^3.0.1"
   }
 }
